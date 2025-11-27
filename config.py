@@ -1,0 +1,8 @@
+RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE = "I:\Radiophysique-Radioprotection\Radiophysique\Suivi dose cardio int\DATA\Cardio int global.xlsx"
+RADIOLOGIE_INTERVENTIONNELLE_NEUROLOGIE_VASCULAIRE = "I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi dose installations fixes\DATA"
+SCANNERS = "I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi dose scanners\scanners global.xlsx"
+RADIOLOGIE_CONVENTIONNELLE = "I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi de dose salles conventionnelles\conventionnel_global.xlsx"
+MAMMOGRAPHIE = "I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi de dose salles conventionnelles\conventionnel_global.xlsx"
+RADIOLOGIE_DENTAIRE = ""
+BLOC_OPERATOIRE = "I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi dose BO\DATA\GLOBAL\global V2.xlsx"
+MEDECINE_NUCEAIRE = ""
