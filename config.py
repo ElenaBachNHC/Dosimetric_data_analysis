@@ -1,4 +1,4 @@
-RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE = r"I:\Radiophysique-Radioprotection\Radiophysique\Suivi dose cardio int\DATA\Cardio int global.xlsx"
+RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE = r"I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi dose cardio int\DATA\Cardio int global.xlsx"
 RADIOLOGIE_INTERVENTIONNELLE_NEURORADIOLOGIE_VASCULAIRE = r"I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi dose installations fixes\DATA"
 SCANNERS = r"I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi dose scanners\scanners global.xlsx"
 RADIOLOGIE_CONVENTIONNELLE = r"I:\Radiophysique-Radioprotection\Radiophysique\Dosimétrie patient\Suivi de dose salles conventionnelles\conventionnel_global.xlsx"
