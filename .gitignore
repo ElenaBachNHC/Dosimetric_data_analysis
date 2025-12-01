@@ -23,6 +23,7 @@ outputs/**
 *.log
 *.csv
 *.json
+*.html
 
 # ⚙️ Python & cache
 __pycache__/

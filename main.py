@@ -1,6 +1,7 @@
 import config 
 from src.preprocessing.file_reader import read_file
 from src.preprocessing.tests_management import manage_tests
+from src.report.report_generation import html_content
 
 RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE = config.RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE
 RADIOLOGIE_INTERVENTIONNELLE_NEURORADIOLOGIE_VASCULAIRE = config.RADIOLOGIE_INTERVENTIONNELLE_NEURORADIOLOGIE_VASCULAIRE
@@ -29,18 +30,21 @@ def main():
 
     # Lecutre des fichiers Excel puis enregistrement au format csv dans le dossier data (à run une fois au début)
     
-    read_file(RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE, "Interventional data export", CSV_RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE)
-    read_file(SCANNERS, "scanners", CSV_SCANNERS)
-    read_file(RADIOLOGIE_CONVENTIONNELLE, "conventionnel", CSV_RADIOLOGIE_CONVENTIONNELLE)
-    read_file(MAMMOGRAPHIE, "senologie", CSV_MAMMOGRAPHIE)
-    read_file(BLOC_OPERATOIRE, "GLOBAL", CSV_BLOC_OPERATOIRE)
+    #read_file(RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE, "Interventional data export", CSV_RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE)
+    #read_file(SCANNERS, "scanners", CSV_SCANNERS)
+    #read_file(RADIOLOGIE_CONVENTIONNELLE, "conventionnel", CSV_RADIOLOGIE_CONVENTIONNELLE)
+    #read_file(MAMMOGRAPHIE, "senologie", CSV_MAMMOGRAPHIE)
+    #read_file(BLOC_OPERATOIRE, "GLOBAL", CSV_BLOC_OPERATOIRE)
 
     # Suppression des lignes test 
-    df_radiologie_interventionnelle_cardiologie = manage_tests(CSV_RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE)
-    df_scanners = manage_tests(CSV_SCANNERS)
-    df_radiologie_conventionnelle = manage_tests(CSV_RADIOLOGIE_CONVENTIONNELLE)
-    df_mammographie = manage_tests(CSV_MAMMOGRAPHIE)
-    df_bloc_operatoire = manage_tests(CSV_BLOC_OPERATOIRE)
+    #df_radiologie_interventionnelle_cardiologie = manage_tests(CSV_RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE)
+    #df_scanners = manage_tests(CSV_SCANNERS)
+    #df_radiologie_conventionnelle = manage_tests(CSV_RADIOLOGIE_CONVENTIONNELLE)
+    #df_mammographie = manage_tests(CSV_MAMMOGRAPHIE)
+    #df_bloc_operatoire = manage_tests(CSV_BLOC_OPERATOIRE)
+
+    with open("dashboard.html", "w", encoding="utf-8") as f: 
+        f.write(html_content)
 
 
 if __name__ == "__main__": 
