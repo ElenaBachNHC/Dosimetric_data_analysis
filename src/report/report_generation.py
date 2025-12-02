@@ -235,6 +235,11 @@ def generate_report(stats):
             <h3>Période analysée</h3>
             <p>{stats["période analysée"]}</p>
         </div>
+    
+        <div class='metric-card'>
+            <h3>Nombre d'équipement</h3>
+            <p>{stats["nombre d'équipement"]}</p>
+        </div>
     </div>
 
 
