@@ -1,7 +1,8 @@
 import config 
 from src.preprocessing.file_reader import read_file
-from src.preprocessing.tests_management import manage_tests
-from src.report.report_generation import html_content
+from src.preprocessing.quality_control_management import manage_quality_control
+from src.processsing.bloc.stats import bloc_statistics
+from src.report.report_generation import generate_report
 
 RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE = config.RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE
 RADIOLOGIE_INTERVENTIONNELLE_NEURORADIOLOGIE_VASCULAIRE = config.RADIOLOGIE_INTERVENTIONNELLE_NEURORADIOLOGIE_VASCULAIRE
@@ -36,13 +37,24 @@ def main():
     #read_file(MAMMOGRAPHIE, "senologie", CSV_MAMMOGRAPHIE)
     #read_file(BLOC_OPERATOIRE, "GLOBAL", CSV_BLOC_OPERATOIRE)
 
-    # Suppression des lignes test 
-    #df_radiologie_interventionnelle_cardiologie = manage_tests(CSV_RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE)
-    #df_scanners = manage_tests(CSV_SCANNERS)
-    #df_radiologie_conventionnelle = manage_tests(CSV_RADIOLOGIE_CONVENTIONNELLE)
-    #df_mammographie = manage_tests(CSV_MAMMOGRAPHIE)
-    #df_bloc_operatoire = manage_tests(CSV_BLOC_OPERATOIRE)
+    # Suppression des lignes contrôle qualité qui ne corresponde à aucun patient 
+    df_radiologie_interventionnelle_cardiologie = manage_quality_control(CSV_RADIOLOGIE_INTERVENTIONNELLE_CARDIOLOGIE)
+    df_scanners = manage_quality_control(CSV_SCANNERS)
+    df_radiologie_conventionnelle = manage_quality_control(CSV_RADIOLOGIE_CONVENTIONNELLE)
+    df_mammographie = manage_quality_control(CSV_MAMMOGRAPHIE)
+    df_bloc_operatoire = manage_quality_control(CSV_BLOC_OPERATOIRE)
 
+
+    #with open("C:/Users/BACHELEN/Documents/PROJECTS/dosimetric_data_analysis/data/describe.txt", "a", encoding="utf-8") as f:
+    #        f.write("=" * 60 + "\n")
+    #        f.write("📄 Aperçu du DataFrame.\n")
+    #        f.write("=" * 60 + "\n")
+    #        f.write(df_bloc_operatoire.to_string(index=False))
+    #        f.write("\n\n")
+
+    stats_bloc_operatoire = bloc_statistics(df_bloc_operatoire)
+
+    html_content = generate_report(stats_bloc_operatoire)
     with open("dashboard.html", "w", encoding="utf-8") as f: 
         f.write(html_content)
 
