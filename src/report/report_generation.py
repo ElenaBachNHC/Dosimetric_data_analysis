@@ -233,7 +233,7 @@ def generate_report(stats):
 
         <div class='metric-card'>
             <h3>Période analysée</h3>
-            <p>{stats["période analysée"]}</p>
+            <p>{stats["période analysée"]} ({stats["nombre d'années analysées"]} ans)</p>
         </div>
     
         <div class='metric-card'>
@@ -243,6 +243,14 @@ def generate_report(stats):
         <div class='metric-card'>
             <h3>Moyenne d'examens par an</h3>
             <p>{stats["moyenne d'examen par an"]}</p>
+        </div>
+        <div class='metric-card'>
+            <h3>Nombre de site</h3>
+            <p>{stats["nombre de site"]}</p>
+        </div>
+        <div class='metric-card'>
+            <h3>Nombre d'alertes dosimétriques</h3>
+            <p>{stats["nombre d'alerte de doses"]} ({stats["pourcentage alerte de doses"]}%)</p>
         </div>
     </div>
 
