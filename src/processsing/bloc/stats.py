@@ -1,20 +1,26 @@
 import pandas as pd 
 
-def bloc_statistics(data_file: str) -> pd.DataFrame: 
+def bloc_statistics(df: pd.DataFrame) -> dict: 
 
-    df = pd.read_csv(data_file, low_memory=False)
-    
+    # Nombre de lignes analysées 
+    nbr_line = len(df)
+
     # Période analysée 
     df["Study date (YYYY-MM-DD)"] = pd.to_datetime(df["Study date (YYYY-MM-DD)"])
-    min_date = df["Study date (YYYY-MM-DD)"].min()
-    max_date = df["Study date (YYYY-MM-DD)"].max()
+    min_date = df["Study date (YYYY-MM-DD)"].dt.year.min()
+    max_date = df["Study date (YYYY-MM-DD)"].dt.year.max()
 
-    print(list(df["Device"].unique()))
+    # Nombre d'équipement 
+    nbr_device = df["AE Title"].nunique()
+
+    # Moyenne d'examen par an 
+    average_exam_per_year = round(df.groupby(df["Study date (YYYY-MM-DD)"].dt.year).size().mean())
 
     stats_bloc_operatoire = {
-        "nombre de lignes analysées": len(df),
-        "période analysée": f"""{min_date.year} - {max_date.year}""",
-        "nombre d'équipement": df["AE Title"].nunique(),
+        "nombre de lignes analysées": nbr_line,
+        "période analysée": f"""{min_date} - {max_date}""",
+        "nombre d'équipement": nbr_device,
+        "moyenne d'examen par an": average_exam_per_year
     }
     
     return stats_bloc_operatoire

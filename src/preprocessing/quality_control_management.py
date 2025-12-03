@@ -1,7 +1,9 @@
 import pandas as pd 
 
 
-def manage_quality_control(df: pd.DataFrame) -> pd.DataFrame:
+def manage_quality_control(data_file: str) -> pd.DataFrame:
+
+    df = pd.read_csv(data_file, low_memory=False)
 
     # Suppression des lignes qui ont un sex=OTHER et un NIP avec des lettres ou des tirets
     df = df[df["Patient sex"] != "OTHER"]

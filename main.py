@@ -55,6 +55,7 @@ def main():
 
     stats_bloc_operatoire = bloc_statistics(df_bloc_operatoire)
 
+
     html_content = generate_report(stats_bloc_operatoire)
     with open("dashboard.html", "w", encoding="utf-8") as f: 
         f.write(html_content)

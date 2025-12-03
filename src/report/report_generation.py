@@ -240,6 +240,10 @@ def generate_report(stats):
             <h3>Nombre d'équipement</h3>
             <p>{stats["nombre d'équipement"]}</p>
         </div>
+        <div class='metric-card'>
+            <h3>Moyenne d'examens par an</h3>
+            <p>{stats["moyenne d'examen par an"]}</p>
+        </div>
     </div>
 
 
