@@ -29,8 +29,8 @@ def vue_ensemble_generale(df:pd.DataFrame) -> float:
     nbr_site = format_number(df["Site"].nunique())
 
     # Nombre d'alerte de doses 
-    nbr_dose_alert = float(format_number((df["Raised alerts?"]=="Yes").sum()))
-    percentage_nbr_dose_alert = format_number(round(nbr_dose_alert/len(df["Raised alerts?"])*100, 2))
+    nbr_dose_alert = format_number((df["Raised alerts?"]=="Yes").sum())
+    percentage_nbr_dose_alert = format_number(round(((df["Raised alerts?"]=="Yes").sum())/len(df["Raised alerts?"])*100, 2))
 
     return nbr_line, min_date, max_date, nbr_years, nbr_device, average_exam_per_year, nbr_site, nbr_dose_alert, percentage_nbr_dose_alert
 
@@ -59,9 +59,11 @@ def indicateurs_dosimetriques_globaux(df:pd.DataFrame, column_name: str) -> floa
 def analyse_detaillee_par_site(df:pd.DataFrame) -> float: 
 
     site = df["Site"].value_counts().to_dict()
-    return site 
+    keys = list(site.keys())
+    values = list(site.values())
+    return keys, values
 
-def bloc_statistics(df: pd.DataFrame) -> dict: 
+def statistics(df: pd.DataFrame) -> dict: 
 
     # Card vue d'ensemble 
     nbr_line, min_date, max_date, nbr_years, nbr_device, average_exam_per_year, nbr_site, nbr_dose_alert, percentage_nbr_dose_alert = vue_ensemble_generale(df)
@@ -72,7 +74,7 @@ def bloc_statistics(df: pd.DataFrame) -> dict:
     average_time_of_scopie, median_time_of_scopie, Q75_time_of_scopie, Q90_time_of_scopie, Q95_time_of_scopie, max_time_of_scopie = indicateurs_dosimetriques_globaux(df, "Total Time of Fluoroscopy (s)")
 
     # Tbaleau analyse détaillée par site
-    site = analyse_detaillee_par_site(df)
+    keys, values = analyse_detaillee_par_site(df)
 
 
     stats_bloc_operatoire = {
@@ -105,6 +107,11 @@ def bloc_statistics(df: pd.DataFrame) -> dict:
         "Q90_temps_de_scopie": Q90_time_of_scopie,
         "Q95_temps_de_scopie": Q95_time_of_scopie,
         "max_temps_de_scopie": max_time_of_scopie, 
+
+        "site_1_nom": keys[0], 
+
+
+        "site_1_examen": values[0],
 
     }
     

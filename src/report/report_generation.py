@@ -2,11 +2,11 @@ from jinja2 import Environment, FileSystemLoader
 import os 
 
 
-def generate_report(output_path, stats):
+def generate_report(output_path, context):
     env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), "templates")))
     template = env.get_template("report_template.html")
 
-    html_content = template.render(**stats)
+    html_content = template.render(context)
 
     with open(output_path, "w", encoding="utf-8") as f: 
         f.write(html_content)
