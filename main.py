@@ -46,19 +46,10 @@ def main():
     df_bloc_operatoire = manage_quality_control(CSV_BLOC_OPERATOIRE)
 
 
-    #with open("C:/Users/BACHELEN/Documents/PROJECTS/dosimetric_data_analysis/data/describe.txt", "a", encoding="utf-8") as f:
-    #        f.write("=" * 60 + "\n")
-    #        f.write("📄 Aperçu du DataFrame.\n")
-    #        f.write("=" * 60 + "\n")
-    #        f.write(df_bloc_operatoire.to_string(index=False))
-    #        f.write("\n\n")
-
     stats_bloc_operatoire = bloc_statistics(df_bloc_operatoire)
 
 
-    html_content = generate_report(stats_bloc_operatoire)
-    with open("dashboard.html", "w", encoding="utf-8") as f: 
-        f.write(html_content)
+    generate_report("report.html", stats_bloc_operatoire)
 
 
 if __name__ == "__main__": 

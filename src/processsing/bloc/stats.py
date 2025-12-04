@@ -76,37 +76,36 @@ def bloc_statistics(df: pd.DataFrame) -> dict:
 
 
     stats_bloc_operatoire = {
-        "nombre de lignes analysées": nbr_line,
-        "période analysée": f"""{min_date} - {max_date}""",
-        "nombre d'années analysées": nbr_years,
-        "nombre d'équipement": nbr_device,
-        "moyenne d'examen par an": average_exam_per_year, 
-        "nombre de site": nbr_site,
-        "nombre d'alerte de doses": nbr_dose_alert, 
-        "pourcentage alerte de doses": percentage_nbr_dose_alert,
+        "nombre_de_lignes_analysées": nbr_line,
+        "période_analysée": f"""{min_date} - {max_date}""",
+        "nombre_années_analysées": nbr_years,
+        "nombre_équipement": nbr_device,
+        "moyenne_examen_par_an": average_exam_per_year, 
+        "nombre_de_site": nbr_site,
+        "nombre_alerte_de_doses": nbr_dose_alert, 
+        "pourcentage_alerte_de_doses": percentage_nbr_dose_alert,
 
-        "moyenne DAP": average_DAP,
-        "mediane DAP": median_DAP,
-        "Q75 DAP": Q75_DAP, 
-        "Q90 DAP": Q90_DAP,
-        "Q95 DAP": Q95_DAP,
-        "max DAP": max_DAP, 
+        "moyenne_DAP": average_DAP,
+        "mediane_DAP": median_DAP,
+        "Q75_DAP": Q75_DAP, 
+        "Q90_DAP": Q90_DAP,
+        "Q95_DAP": Q95_DAP,
+        "max_DAP": max_DAP, 
 
-        "moyenne Kair": average_Kair,
-        "mediane Kair": median_Kair,
-        "Q75 Kair": Q75_Kair, 
-        "Q90 Kair": Q90_Kair,
-        "Q95 Kair": Q95_Kair,
-        "max Kair": max_Kair, 
+        "moyenne_Kair": average_Kair,
+        "mediane_Kair": median_Kair,
+        "Q75_Kair": Q75_Kair, 
+        "Q90_Kair": Q90_Kair,
+        "Q95_Kair": Q95_Kair,
+        "max_Kair": max_Kair, 
 
-        "moyenne temps de scopie": average_time_of_scopie,
-        "mediane temps de scopie": median_time_of_scopie,
-        "Q75 temps de scopie": Q75_time_of_scopie, 
-        "Q90 temps de scopie": Q90_time_of_scopie,
-        "Q95 temps de scopie": Q95_time_of_scopie,
-        "max temps de scopie": max_time_of_scopie, 
+        "moyenne_temps_de_scopie": average_time_of_scopie,
+        "mediane_temps_de_scopie": median_time_of_scopie,
+        "Q75_temps_de_scopie": Q75_time_of_scopie, 
+        "Q90_temps_de_scopie": Q90_time_of_scopie,
+        "Q95_temps_de_scopie": Q95_time_of_scopie,
+        "max_temps_de_scopie": max_time_of_scopie, 
 
-        "site" : site.k
     }
     
     return stats_bloc_operatoire
