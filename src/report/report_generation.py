@@ -134,6 +134,34 @@ def generate_report(stats):
         color: #1a365d;
     }}
 
+    /*table*/
+    .stats-table{{
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 15px;
+        font-family: Arial, sans-serif;
+    }}
+
+    .stats-table thead th {{
+        background: #1a4b84;
+        color: white;
+        font-weight: bold;
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #d0d0d0;
+    }}
+
+    .stats-table td {{
+        padding: 10px;
+        border: 1px solid #e5e5e5;
+        text-align: center;
+    }}
+
+    .stats-table tbody tr:nth-child(even) {{
+        background: #f7f9fc;
+    }}
+
 </style>
 </head>
 <body>
@@ -225,6 +253,13 @@ def generate_report(stats):
     font-weight: 600;
     box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
     Arceaux de bloc</h2>
+
+    
+    <h2 style=
+    "color: #2c5282;">
+    Vue d'ensemble générale</h2>
+
+    
     <div class='metric-container'>
         <div class='metric-card'>
             <h3>Nombre d'examen analysés</h3>
@@ -254,6 +289,110 @@ def generate_report(stats):
         </div>
     </div>
 
+    <h2 style=
+    "color: #2c5282;">
+    Indicateurs dosimétriques globaux</h2>
+
+<table class="stats-table">
+    <thead>
+        <tr>
+            <th>PARAMÈTRE</th>
+            <th>MOYENNE</th>
+            <th>MÉDIANE</th>
+            <th>Q75</th>
+            <th>Q90</th>
+            <th>Q95</th>
+            <th>MAXIMUM</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>DAP (mGy·cm²)</td>
+            <td>{stats["moyenne DAP"]}</td>
+            <td>{stats["mediane DAP"]}</td>
+            <td>{stats["Q75 DAP"]}</td>
+            <td>{stats["Q90 DAP"]}</td>
+            <td>{stats["Q95 DAP"]}</td>
+            <td>{stats["max DAP"]}</td>
+        </tr>
+
+        <tr>
+            <td>Kair (mGy)</td>
+            <td>{stats["moyenne Kair"]}</td>
+            <td>{stats["mediane Kair"]}</td>
+            <td>{stats["Q75 Kair"]}</td>
+            <td>{stats["Q90 Kair"]}</td>
+            <td>{stats["Q95 Kair"]}</td>
+            <td>{stats["max Kair"]}</td>
+        </tr>
+
+        <tr>
+            <td>Temps de scopie (s)</td>
+            <td>{stats["moyenne temps de scopie"]}</td>
+            <td>{stats["mediane temps de scopie"]}</td>
+            <td>{stats["Q75 temps de scopie"]}</td>
+            <td>{stats["Q90 temps de scopie"]}</td>
+            <td>{stats["Q95 temps de scopie"]}</td>
+            <td>{stats["max temps de scopie"]}</td>
+        </tr>
+
+    </tbody>
+</table>
+
+    <h2 style=
+    "color: #2c5282;">
+    Analyse détaillée par site</h2>
+
+
+<table class="stats-table">
+    <thead>
+        <tr>
+            <th>SITE/BLOC</th>
+            <th>N EXAMENS</th>
+            <th>% TOTAL</th>
+            <th>DAP MOTENNE (MGY.CM²)</th>
+            <th>DAP MEDIANE</th>
+            <th>KAIR MOYENNE (MIN)</th>
+            <th>TEMPS DE SCOPIE MOYEN (S)</th>
+            <th>ALERTES</th>
+            <th>TAUX ALERTES</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>DAP (mGy·cm²)</td>
+            <td>{stats["moyenne DAP"]}</td>
+            <td>{stats["mediane DAP"]}</td>
+            <td>{stats["Q75 DAP"]}</td>
+            <td>{stats["Q90 DAP"]}</td>
+            <td>{stats["Q95 DAP"]}</td>
+            <td>{stats["max DAP"]}</td>
+        </tr>
+
+        <tr>
+            <td>Kair (mGy)</td>
+            <td>{stats["moyenne Kair"]}</td>
+            <td>{stats["mediane Kair"]}</td>
+            <td>{stats["Q75 Kair"]}</td>
+            <td>{stats["Q90 Kair"]}</td>
+            <td>{stats["Q95 Kair"]}</td>
+            <td>{stats["max Kair"]}</td>
+        </tr>
+
+        <tr>
+            <td>Temps de scopie (s)</td>
+            <td>{stats["moyenne temps de scopie"]}</td>
+            <td>{stats["mediane temps de scopie"]}</td>
+            <td>{stats["Q75 temps de scopie"]}</td>
+            <td>{stats["Q90 temps de scopie"]}</td>
+            <td>{stats["Q95 temps de scopie"]}</td>
+            <td>{stats["max temps de scopie"]}</td>
+        </tr>
+
+    </tbody>
+</table>
 
 
 
