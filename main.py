@@ -51,7 +51,6 @@ def main():
         "scanner": scanner.statistics(df_scanners),
     }
 
-
     generate_report("report.html", context)
 
 
